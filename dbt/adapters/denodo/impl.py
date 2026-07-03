@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, List, Optional
+from typing import TYPE_CHECKING
 
 from dbt.adapters.base import AdapterConfig
 from dbt.adapters.base.impl import ConstraintSupport
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 class DenodoConfig(AdapterConfig):
     # Optional VDP folder for created elements, e.g. '/dbt'. Only emitted
     # when configured.
-    folder: Optional[str] = None
+    folder: str | None = None
 
 
 class DenodoAdapter(SQLAdapter):
@@ -98,16 +98,14 @@ class DenodoAdapter(SQLAdapter):
         # exist on Denodo. `list_schemas` is backed by `LIST DATABASES`.
         return schema.lower() in (s.lower() for s in self.list_schemas(database))
 
-    def rename_relation(
-        self, from_relation: DenodoRelation, to_relation: DenodoRelation
-    ) -> None:
+    def rename_relation(self, from_relation: DenodoRelation, to_relation: DenodoRelation) -> None:
         raise DbtRuntimeError(
             "Denodo VQL does not support renaming views or tables. "
             "dbt-denodo materializations use CREATE OR REPLACE instead; "
             "rename_relation should never be called."
         )
 
-    def valid_incremental_strategies(self) -> List[str]:
+    def valid_incremental_strategies(self) -> list[str]:
         return ["append", "delete+insert"]
 
     def debug_query(self) -> None:
@@ -129,4 +127,3 @@ class DenodoAdapter(SQLAdapter):
         if interval_fn is None:
             raise DbtRuntimeError(f"Unsupported interval for Denodo timestamp_add_sql: {interval}")
         return f"{interval_fn}({add_to}, {number})"
-

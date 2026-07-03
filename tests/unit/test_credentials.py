@@ -1,7 +1,7 @@
 import pytest
+from dbt_common.exceptions import DbtRuntimeError
 
 from dbt.adapters.denodo.connections import DenodoCredentials
-from dbt_common.exceptions import DbtRuntimeError
 
 
 def test_type_and_unique_field():

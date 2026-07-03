@@ -2,9 +2,8 @@ from types import SimpleNamespace
 from unittest import mock
 
 import psycopg2
-import pytest
-
 from dbt.adapters.contracts.connection import AdapterResponse, ConnectionState
+
 from dbt.adapters.denodo.connections import DenodoConnectionManager, DenodoCredentials
 
 

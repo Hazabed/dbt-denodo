@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import ClassVar, Dict
+from typing import ClassVar
 
 from dbt.adapters.base.column import Column
 
@@ -13,7 +13,7 @@ class DenodoColumn(Column):
     blob, xml.
     """
 
-    TYPE_LABELS: ClassVar[Dict[str, str]] = {
+    TYPE_LABELS: ClassVar[dict[str, str]] = {
         "STRING": "TEXT",
         "VARCHAR": "TEXT",
         "TIMESTAMP": "TIMESTAMP",

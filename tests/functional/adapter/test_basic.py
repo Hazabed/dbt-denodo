@@ -9,8 +9,6 @@ Snapshot tests are omitted: snapshots are not supported on Denodo (no
 MERGE, no RENAME in VQL).
 """
 
-import pytest
-
 from dbt.tests.adapter.basic.test_adapter_methods import BaseAdapterMethod
 from dbt.tests.adapter.basic.test_base import BaseSimpleMaterializations
 from dbt.tests.adapter.basic.test_empty import BaseEmpty

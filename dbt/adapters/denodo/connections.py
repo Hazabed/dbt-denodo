@@ -12,11 +12,10 @@ Denodo Platform 8.
 
 from contextlib import contextmanager
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 import psycopg2
 import psycopg2.extensions
-
 from dbt.adapters.contracts.connection import (
     AdapterResponse,
     Connection,
@@ -44,8 +43,8 @@ class DenodoCredentials(Credentials):
     port: int = 9996
     user: str = ""
     password: str = ""
-    database: Optional[str] = None
-    schema: Optional[str] = None
+    database: str | None = None
+    schema: str | None = None
     sslmode: str = "prefer"
     connect_timeout: int = 10
     retries: int = 1
@@ -78,7 +77,7 @@ class DenodoCredentials(Credentials):
     def unique_field(self) -> str:
         return self.host
 
-    def _connection_keys(self) -> Tuple[str, ...]:
+    def _connection_keys(self) -> tuple[str, ...]:
         # `database` must be present: dbt builds the `target` jinja context
         # from these keys, and generate_database_name() assigns
         # target.database to every node. Omitting it would leave nodes with
@@ -124,7 +123,7 @@ class DenodoConnectionManager(SQLConnectionManager):
 
         credentials: DenodoCredentials = connection.credentials
 
-        kwargs: Dict[str, Any] = {
+        kwargs: dict[str, Any] = {
             "host": credentials.host,
             "port": credentials.port,
             "user": credentials.user,
@@ -144,7 +143,7 @@ class DenodoConnectionManager(SQLConnectionManager):
             handle.set_session(autocommit=True)
             return handle
 
-        retryable_exceptions: List[type] = [psycopg2.OperationalError]
+        retryable_exceptions: list[type] = [psycopg2.OperationalError]
 
         return cls.retry_connection(
             connection,

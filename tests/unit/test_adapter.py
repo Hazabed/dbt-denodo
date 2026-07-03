@@ -2,11 +2,11 @@ from decimal import Decimal
 
 import agate
 import pytest
+from dbt_common.exceptions import DbtRuntimeError
 
 from dbt.adapters.denodo import DenodoAdapter, Plugin
 from dbt.adapters.denodo.column import DenodoColumn
 from dbt.adapters.denodo.relation import DenodoRelation
-from dbt_common.exceptions import DbtRuntimeError
 
 
 class TestPlugin:
