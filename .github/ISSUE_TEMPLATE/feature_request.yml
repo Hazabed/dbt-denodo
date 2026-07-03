@@ -1,0 +1,25 @@
+name: Feature request
+description: Suggest an improvement or new capability for dbt-denodo
+labels: [enhancement, triage]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Describe the use case, not just the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: >
+        How should the adapter behave? If this involves VQL, please link the
+        relevant Denodo documentation — several dbt features (snapshots,
+        grants, constraints) are unsupported because VQL lacks the primitives.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered

@@ -1,0 +1,20 @@
+fixed:
+  type: denodo
+prompts:
+  host:
+    hint: "hostname of the Denodo Virtual DataPort server"
+  port:
+    default: 9996
+    type: "int"
+    hint: "VDP ODBC (PostgreSQL-compatible) port"
+  user:
+    hint: "VDP user name"
+  password:
+    hint: "VDP password"
+    hide_input: true
+  schema:
+    hint: "Denodo virtual database dbt will build into"
+  threads:
+    default: 4
+    type: "int"
+    hint: "1 or more"

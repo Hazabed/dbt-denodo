@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: dbt documentation
+    url: https://docs.getdbt.com/
+    about: General dbt usage questions are answered by the dbt docs.
+  - name: Denodo community
+    url: https://community.denodo.com/
+    about: Questions about Denodo Platform / VQL itself belong in the Denodo community.

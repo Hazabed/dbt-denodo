@@ -1,0 +1,76 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dbt-denodo"
+dynamic = ["version"]
+description = "The Denodo (Virtual DataPort) adapter plugin for dbt"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+authors = [{ name = "Hassan Abid", email = "hssanabid7@gmail.com" }]
+maintainers = [{ name = "Hassan Abid", email = "hssanabid7@gmail.com" }]
+keywords = ["dbt", "denodo", "adapter", "data virtualization"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    # Post dbt-core 1.8, adapters depend on the decoupled interface
+    # packages, not on dbt-core itself.
+    "dbt-adapters>=1.16.0,<2.0.0",
+    "dbt-common>=1.10.0,<2.0.0",
+    # Denodo's officially supported Python connectivity for Denodo 8 is the
+    # PostgreSQL-compatible interface (port 9996) via psycopg2 — the same
+    # driver used by Denodo's official SQLAlchemy dialect.
+    "psycopg2-binary>=2.9.9,<3.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "dbt-core>=1.11.0,<2.0.0",
+    "dbt-tests-adapter>=1.20.0,<2.0.0",
+    "pytest>=8.0",
+    "pytest-dotenv>=0.5.2",
+    "ruff>=0.8",
+    "pre-commit>=3.5",
+]
+
+[project.urls]
+Homepage = "https://github.com/Hazabed/dbt-denodo"
+Repository = "https://github.com/Hazabed/dbt-denodo"
+Changelog = "https://github.com/Hazabed/dbt-denodo/blob/main/CHANGELOG.md"
+Issues = "https://github.com/Hazabed/dbt-denodo/issues"
+
+[tool.hatch.version]
+path = "dbt/adapters/denodo/__version__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["dbt"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/dbt", "/tests", "/README.md", "/pyproject.toml"]
+
+[tool.ruff]
+line-length = 99
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+]
+ignore = [
+    "E501", # line length is handled by the formatter
+]

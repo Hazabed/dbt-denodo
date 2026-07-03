@@ -1,0 +1,58 @@
+name: Bug report
+description: Report a problem with the dbt-denodo adapter
+labels: [bug, triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill in as much
+        detail as possible — VQL and version details are usually essential.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+      placeholder: Running `dbt run` on an incremental model fails with...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: >
+        Output of the failing command, ideally with `dbt --debug` so the
+        emitted VQL is visible. This is rendered as code automatically.
+      render: shell
+  - type: input
+    id: adapter-version
+    attributes:
+      label: dbt-denodo version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: dbt-version
+    attributes:
+      label: dbt Core version
+      placeholder: "1.11.0"
+    validations:
+      required: true
+  - type: input
+    id: denodo-version
+    attributes:
+      label: Denodo Platform version
+      placeholder: "8.0 update 20240229"
+    validations:
+      required: true
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version and OS
+      placeholder: "3.12 on Ubuntu 24.04"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Minimal model / config / profile (redact credentials) that reproduces the issue.
