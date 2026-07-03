@@ -3,11 +3,11 @@
 Denodo's officially supported way to connect from Python is the
 PostgreSQL-compatible interface of Virtual DataPort (the "ODBC" interface,
 port 9996 by default). It is the same interface used by Denodo's official
-SQLAlchemy dialect for Denodo 8 (``denodo-sqlalchemy``), and it accepts VQL
-statements. The Denodo JDBC driver is a Java artifact and cannot be used
+SQLAlchemy dialect (``denodo-sqlalchemy``) for Denodo 8 and 9, and it accepts
+VQL statements. The Denodo JDBC driver is a Java artifact and cannot be used
 natively from CPython, and the Arrow Flight SQL interface only exists in
-Denodo 9.1+, so psycopg2 over port 9996 is the recommended approach for
-Denodo Platform 8.
+Denodo 9.1+, so psycopg2 over port 9996 is the approach that covers both
+Denodo Platform 8 and 9 with a single code path.
 """
 
 from contextlib import contextmanager

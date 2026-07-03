@@ -23,7 +23,7 @@ class DenodoConfig(AdapterConfig):
 
 
 class DenodoAdapter(SQLAdapter):
-    """dbt adapter for Denodo Virtual DataPort (Denodo Platform 8).
+    """dbt adapter for Denodo Virtual DataPort (Denodo Platform 8 and 9).
 
     Key platform characteristics this adapter accounts for:
 

@@ -1,6 +1,6 @@
 """Standard dbt-tests-adapter basic suite.
 
-Requires a live Denodo VDP 8 server (see test.env.example). The connected
+Requires a live Denodo VDP server (8 or 9) (see test.env.example). The connected
 user needs CREATE DATABASE privileges because the framework creates a
 unique schema (virtual database) per test, and the server needs the cache
 engine enabled for table/seed/incremental materializations.

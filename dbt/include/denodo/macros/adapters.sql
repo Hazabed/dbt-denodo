@@ -1,5 +1,5 @@
 {#
-  Adapter macros for Denodo Virtual DataPort (Denodo Platform 8).
+  Adapter macros for Denodo Virtual DataPort (Denodo Platform 8 and 9).
 
   All SQL here is VQL executed through VDP's PostgreSQL-compatible
   interface (port 9996), which passes VQL statements through verbatim.

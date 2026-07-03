@@ -8,7 +8,7 @@ from dbt.adapters.base.column import Column
 class DenodoColumn(Column):
     """Column implementation using Denodo VDP data type names.
 
-    VDP scalar types (Denodo 8): boolean, date, decimal, double, float, int,
+    VDP scalar types (Denodo 8/9): boolean, date, decimal, double, float, int,
     long, text, time, timestamp, timestamptz, intervalday, intervalyearmonth,
     blob, xml.
     """

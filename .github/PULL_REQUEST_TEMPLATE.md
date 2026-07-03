@@ -9,5 +9,5 @@
 - [ ] I added or updated tests covering my change
 - [ ] I updated `CHANGELOG.md` under the unreleased version
 - [ ] If this changes VQL emitted by the adapter, I verified the statements against a
-      live Denodo VDP 8 server **or** noted the assumption in the README's
+      live Denodo VDP server (8 or 9) **or** noted the assumption in the README's
       "Assumptions to verify against a live server" section

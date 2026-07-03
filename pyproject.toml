@@ -27,7 +27,7 @@ dependencies = [
     # packages, not on dbt-core itself.
     "dbt-adapters>=1.16.0,<2.0.0",
     "dbt-common>=1.10.0,<2.0.0",
-    # Denodo's officially supported Python connectivity for Denodo 8 is the
+    # Denodo's officially supported Python connectivity for Denodo 8 and 9 is the
     # PostgreSQL-compatible interface (port 9996) via psycopg2 — the same
     # driver used by Denodo's official SQLAlchemy dialect.
     "psycopg2-binary>=2.9.9,<3.0.0",

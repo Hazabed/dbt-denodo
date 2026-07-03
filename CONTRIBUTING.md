@@ -26,7 +26,7 @@ pre-commit install
 pytest tests/unit
 ```
 
-**Functional tests** require a live Denodo VDP 8 server with the
+**Functional tests** require a live Denodo VDP server (8 or 9) with the
 PostgreSQL-compatible interface enabled (port 9996) and the cache engine
 configured:
 
@@ -63,7 +63,7 @@ CI runs the same checks; PRs must pass them.
 
 - **VQL correctness matters most.** Denodo's VQL differs from SQL in
   important ways (no `RENAME`, no `MERGE`, no `TRUNCATE`, non-transactional
-  DDL). If your change alters emitted VQL, verify it against a live VDP 8
+  DDL). If your change alters emitted VQL, verify it against a live VDP (8 or 9)
   server, or document the assumption in the README's
   "Assumptions to verify against a live server" section.
 - **Fail loudly.** Features VQL cannot support (snapshots, grants,
